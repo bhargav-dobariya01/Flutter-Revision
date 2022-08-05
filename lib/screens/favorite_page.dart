@@ -1,28 +1,27 @@
-
 import 'package:flutter/material.dart';
 
 import '../resources/color_assets.dart';
 import '../resources/string_asset.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class FavoritePage extends StatefulWidget {
+  const FavoritePage({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _FavoritePageState createState() => _FavoritePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(StringAssets.txthomepage),
+        title: Text(StringAssets.txtfavoritepage),
         centerTitle: true,
         backgroundColor: ColorAsset.blueColor,
       ),
       body: Center(
         child: Text(
-          StringAssets.txthomepage,
+          StringAssets.txtfavoritepage,
           style: const TextStyle(fontSize: 30),
         ),
       ),

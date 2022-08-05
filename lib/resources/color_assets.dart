@@ -9,4 +9,5 @@ class ColorAsset {
   static Color foloraWhiteButton = const Color(0xffFFFAF0);
   static Color whitecolor = const Color(0xffffffff);
   static Color skybluecolor = const Color(0xff3b76d4);
+  static Color blackcolor = const Color(0xff000000);
 }

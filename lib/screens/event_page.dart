@@ -4,25 +4,25 @@ import 'package:flutter/material.dart';
 import '../resources/color_assets.dart';
 import '../resources/string_asset.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class EventPage extends StatefulWidget {
+  const EventPage({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _EventPageState createState() => _EventPageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _EventPageState extends State<EventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(StringAssets.txthomepage),
+        title: Text(StringAssets.txtevent),
         centerTitle: true,
         backgroundColor: ColorAsset.blueColor,
       ),
       body: Center(
         child: Text(
-          StringAssets.txthomepage,
+          StringAssets.txteventPage,
           style: const TextStyle(fontSize: 30),
         ),
       ),
