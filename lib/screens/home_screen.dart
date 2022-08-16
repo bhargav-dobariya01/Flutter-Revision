@@ -1,9 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation_drawer/screens/event_page.dart';
-import 'package:navigation_drawer/screens/favorite_page.dart';
 
-import '../resources/color_assets.dart';
-import '../resources/string_asset.dart';
+import '../model/user_model.dart';
+import '../resources/app_color.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,68 +12,73 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late double _deviceHeight;
-  late double _deviceWidth;
+  List userList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseFirestore.instance.collection('users').get().then(
+      (querySnapshot) {
+        for (var element in querySnapshot.docs) {
+          FirebaseFirestore.instance
+              .collection('users')
+              .doc(element.id)
+              .get()
+              .then((userDocumentSnapshot) {
+            UserModel userModel =
+                UserModel.fromMap(userDocumentSnapshot.data());
+
+            userList.add(userModel);
+            setState(() {});
+          });
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    _deviceHeight = MediaQuery.of(context).size.height;
-
-    _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(StringAssets.txthomepage),
-        centerTitle: true,
-        backgroundColor: ColorAsset.blueColor,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const FavoritePage()));
-              },
-              child: Container(
-                width: _deviceWidth * 0.4,
-                height: _deviceHeight * 0.06,
-                decoration: BoxDecoration(
-                    color: ColorAsset.blueColor,
-                    borderRadius: const BorderRadius.all(Radius.circular(50))),
-                alignment: Alignment.center,
-                child: Text(
-                  "push",
-                  style: TextStyle(
-                    fontSize: 19,
-                    color: ColorAsset.whitecolor,
-                    fontWeight: FontWeight.w700,
-                  ),
+      appBar: AppBar(title: const Text("All User List")),
+      body: ListView.separated(
+        itemCount: userList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {},
+            child: Container(
+              decoration: BoxDecoration(
+                  color: AppColor.colorWhite,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColor.colorSkipforNow,
+                      blurRadius: 15,
+                    )
+                  ]),
+              alignment: Alignment.center,
+              child: ListTile(
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userList[index].firstname!,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.chatName,
+                          fontWeight: FontWeight.w800,
+                          fontFamily: 'Manrope'),
+                    ),
+                  ],
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const EventPage()));
-              },
-              child: Container(
-                width: _deviceWidth * 0.4,
-                height: _deviceHeight * 0.06,
-                decoration: BoxDecoration(
-                    color: ColorAsset.blueColor,
-                    borderRadius: const BorderRadius.all(Radius.circular(50))),
-                alignment: Alignment.center,
-                child: Text(
-                  "Replacement",
-                  style: TextStyle(
-                    fontSize: 19,
-                    color: ColorAsset.whitecolor,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          ],
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) => Divider(
+          color: AppColor.colorWhite,
+          height: 8,
+          thickness: 0,
         ),
       ),
     );
