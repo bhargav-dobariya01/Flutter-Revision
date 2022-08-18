@@ -22,6 +22,20 @@ class AppString {
   static String txtYes = "Yes";
   static String txtNo = "No";
   static String txtQty = "Qty";
+  static String txtKotakMahindraBank = "Kotak Mahindra Bank";
+  static String txtTataCapital = "Tata Capital";
+  static String txtRblBank = "RBL Bank";
+  static String txtLoanAmount = "Loan Amount";
+  static String txtEmi = "EMI";
+  static String txtInterestRate = "Interest Rate";
+  static String txtProcessingFee = "Processing Fee";
+  static String txtTenure = "Tenure";
+  static String txtApply = "Apply";
+  static String txt$25000 = "₹ 250000";
+  static String txt$11732 = "₹ 11732";
+  static String txt$11 = "11.69%";
+  static String txt$129 = "1.29%";
+  static String txt2Years = "2 Years";
 
   static String txtDontHaveAnAccount = "Don't have an account?";
   static String txtSignUp = "Sign Up";

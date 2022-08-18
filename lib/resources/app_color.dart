@@ -58,17 +58,31 @@ class AppColor {
 
   static Color lightRedColor = const Color(0xFFDD1414);
 
-  static Color colorTheme=Color(0xFF314CB8);
-  static Color colorTheme1=Color(0xFF8096F0);
-  static Color colorSky=Color(0xFFccffff);
-  static Color colorSkyBright=Color(0xFFb3ffff);
-  static Color colorRed=Color(0xFFff0000);
-  static Color colorRedAccent=Colors.redAccent;
-  static Color colorBlue=Color(0xFF0000ff);
-  static Color colorLightBlue=Color(0xFF03a9f4);
-  static Color colorGreen=Color(0xFF00ff00);
-  static Color colorGrey=Color(0xFF808080);
-  static Color colorLightGreen=Color(0xFF8bc34a);
-  static Color colorWhite60=Color(0xb3ffffff);
-  static Color colorBlack12=Color(0x1f000000);
+  static Color colorTheme = const Color(0xFF314CB8);
+  static Color colorTheme1 = const Color(0xFF8096F0);
+  static Color colorSky = const Color(0xFFccffff);
+  static Color colorSkyBright = const Color(0xFFb3ffff);
+  static Color colorRed = const Color(0xFFff0000);
+  static Color colorRedAccent = Colors.redAccent;
+  static Color colorBlue = const Color(0xFF0000ff);
+  static Color colorLightBlue = const Color(0xFF03a9f4);
+  static Color colorGreen = const Color(0xFF00ff00);
+  static Color colorGrey = const Color(0xFF808080);
+  static Color colorLightGreen = const Color(0xFF8bc34a);
+  static Color colorWhite60 = const Color(0xb3ffffff);
+  static Color colorBlack12 = const Color(0x1f000000);
+  static Color colorOrange = const Color(0xFFE66F1A);
+  static Color colorOrange2 = const Color(0xFFF2925A);
+  static Color colorApplyButton = const Color(0xFF1FA39D);
+  static Color colorTataCardColor = const Color(0xFF0068A4);
+  static Color colorPlusButton = Color.fromARGB(255, 24, 149, 222);
+  static Color colorTataCardColor2 = const Color(0xFF5ED9E4);
+  static Color colorRblBankColor = const Color(0xFFC82D5E);
+  static Color colorRblBankColor2 = const Color(0xFFD76287);
+
+  // static Color colorBlack12 = const Color(0x1f000000);
+  // static Color colorBlack12 = const Color(0x1f000000);
+  // static Color colorBlack12 = const Color(0x1f000000);
+  // static Color colorBlack12 = const Color(0x1f000000);
+  // static Color colorBlack12 = const Color(0x1f000000);
 }
